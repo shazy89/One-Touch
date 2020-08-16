@@ -1,0 +1,22 @@
+<h3>Edit</h3>
+
+<%= form_for @user do |f| %>
+
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+    <%= f.label :contact_number %><br />
+    <%= f.text_field :contact_number, autofocus: true, autocomplete: "contact_number" %>
+    <%= f.label :username %><br />
+    <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :password %><i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "new-password"  %>
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+
+  <%= f.submit "edit" %>
+<% end %>
+

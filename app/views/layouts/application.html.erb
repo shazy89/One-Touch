@@ -17,14 +17,15 @@
       <a href="/" class="brand-logo">Home</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
       <% if  current_user %>
-        <li><%= link_to "Log out", root_path %></li>
+        <li><%= link_to "Log out", logout_path %></li>
         <% else %>
-        
+        <li><%= link_to "Log in", login_path %></li>
         <li><%= link_to "create account", new_user_path %></li>
         <% end %>
       </ul>
     </div>
   </nav>
+        
       
     <%= yield %>
            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
