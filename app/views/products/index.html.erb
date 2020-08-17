@@ -25,7 +25,7 @@
       <li>
         <%= product.title %>
         </li>
-       <%= form_tag select_item["/select_items"] do %>
+       <%= form_tag "/select_items" do %>
        <%= hidden_field_tag :product_id, product.id %>
        <%= number_field_tag :quantity, 1 %>
         <%= submit_tag "Add to List" %>

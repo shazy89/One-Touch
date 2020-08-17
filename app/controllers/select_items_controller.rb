@@ -5,18 +5,15 @@ class SelectItemsController < ApplicationController
 
    def select_item
     @user= current_user
-         #binding.pry
-    @item = SelectItem.create(item_params)
+         binding.pry
+    @item = SelectItem.create(quantity: params[:quantity], product_id: params[:product_id])
        redirect_to user_path(@user)
    
     end
        
       
 
-private 
-def item_params
-    
-  end
+
 
 end
 

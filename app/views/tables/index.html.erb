@@ -1,0 +1,6 @@
+<h1>Tables</h1>
+
+ <% @table.each do |table| %>
+ <button class="waves-effect waves-light btn"><%= link_to table.tabel_num, table_path(table) %></button>
+ <% end %>
+     

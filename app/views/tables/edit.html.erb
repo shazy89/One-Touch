@@ -1,0 +1,11 @@
+<%= form_for @table do |f|  %>
+
+  <div class="field">
+    <%= f.label :tabel_num %>
+    <%= f.number_field  :tabel_num %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
