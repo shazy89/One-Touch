@@ -14,9 +14,9 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     <%= f.label :password %><i>(leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password, autocomplete: "new-password"  %>
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
 
-  <%= f.submit "edit" %>
+
+  <%= f.submit "update" %>
 <% end %>
 
+<%= button_to "Cancel my account", user_path(@user), data: { confirm: "Are you sure?" }, method: :delete %></p>
