@@ -18,5 +18,10 @@
 
   <%= f.submit "update" %>
 <% end %>
-
+<div>
+  <%= link_to 'Back', user_path(@user) %> 
+</div> 
+<br>
+<div>
 <%= button_to "Cancel my account", user_path(@user), data: { confirm: "Are you sure?" }, method: :delete %></p>
+</div>

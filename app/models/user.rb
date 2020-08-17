@@ -1,10 +1,14 @@
 class User < ApplicationRecord
-
+    has_many :products
+    has_many :tables
 
     validates :email, presence: true, uniqueness: true
     validates :username, presence: true, uniqueness: true
     validates :contact_number, presence: true
+
     has_secure_password
+
+
 
     def admin_or_employee
         self.employee = true unless self.admin
@@ -16,4 +20,8 @@ class User < ApplicationRecord
         self.contact_number.phony_formatted!(normalize: :NL, format: :international ) 
         end
     end
+
+
+     
+
 end
