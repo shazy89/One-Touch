@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_17_144829) do
+ActiveRecord::Schema.define(version: 2020_08_17_175503) do
 
   create_table "products", force: :cascade do |t|
     t.string "title"
     t.decimal "price"
-    t.integer "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["product_id"], name: "index_products_on_product_id"
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "select_items", force: :cascade do |t|
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2020_08_17_144829) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "products", "products"
+  add_foreign_key "products", "users"
   add_foreign_key "select_items", "products"
   add_foreign_key "select_items", "tables"
   add_foreign_key "tables", "users"

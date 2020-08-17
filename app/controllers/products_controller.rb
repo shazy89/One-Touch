@@ -7,17 +7,18 @@ class ProductsController < ApplicationController
 
     def new 
         @product = Product.new
+        @user = current_user
     end
 
     def create
-        @product = Product.create(product_params)
+        @product = current_user.products.build(product_params)
         if @product.save
-            redirect_to new_product_path
+            redirect_to products_path
         else
             redirect_to root_path
         end
     end
-
+        
     def show
     end
         
@@ -26,9 +27,9 @@ class ProductsController < ApplicationController
     end
 
     def update
-        @product = Product.update(product_params)
-        if @product.save
-            redirect_to new_product_path
+          # binding.pry
+        if  @product.update(product_params)
+            redirect_to products_path
         else
             redirect_to root_path
         end
@@ -41,12 +42,15 @@ class ProductsController < ApplicationController
     
     private
     def set_product
-      @recipt = Recipt.find(params[:id])
+      @product = Product.find(params[:id])
     end
 
 
     def product_params
-      params.require(:recipt).permit(:title, :price)
+      params.require(:product).permit(:title, :price)
     end
 
 end
+      
+  
+
