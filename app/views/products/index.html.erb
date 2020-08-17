@@ -18,9 +18,20 @@
    </tr>
    <% end %>
    </tbody>
-
 </table>
-  
+
+  <div>
+      <% @product.each do |product| %>
+      <li>
+        <%= product.title %>
+        </li>
+       <%= form_tag select_item["/select_items"] do %>
+       <%= hidden_field_tag :product_id, product.id %>
+       <%= number_field_tag :quantity, 1 %>
+        <%= submit_tag "Add to List" %>
+      <% end %>
+      <% end %>
+  </div>
 
 
 <%= link_to 'New Product', new_product_path %>
