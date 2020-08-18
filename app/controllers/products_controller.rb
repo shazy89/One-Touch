@@ -11,13 +11,14 @@ class ProductsController < ApplicationController
     end
 
     def create
-        @product = current_user.products.build(product_params)
+        @product = Product.create(product_params)
         if @product.save
-            redirect_to products_path
+            redirect_to user_products_path
         else
             redirect_to root_path
         end
     end
+  
         
     def show
     end
@@ -27,18 +28,19 @@ class ProductsController < ApplicationController
     end
 
     def update
-          # binding.pry
         if  @product.update(product_params)
-            redirect_to products_path
+            redirect_to user_products_path
         else
             redirect_to root_path
         end
     end
 
+
     def destroy
         @product.destroy
-        redirect_to products_path
+        redirect_to user_products_path(current_user)
     end
+ 
     
     private
     def set_product
@@ -47,7 +49,7 @@ class ProductsController < ApplicationController
 
 
     def product_params
-      params.require(:product).permit(:title, :price)
+      params.require(:product).permit(:title, :price, :user_id)
     end
 
 end

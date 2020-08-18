@@ -1,17 +1,7 @@
 <h1>Signup</h1>
+<%= flash[:errors]  %>
 
 <%= form_for @user, url: users_path do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this product from being saved:</h2>
-
-      <ul>
-        <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
 
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
@@ -26,9 +16,10 @@
     <%= f.label :password %>
     <%= f.password_field :password, autocomplete: "new-password" %>
 
-
   <%= f.submit "Signup" %>
 <% end %>
+
+     
 
 
 
