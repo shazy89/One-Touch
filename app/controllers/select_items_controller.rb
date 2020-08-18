@@ -1,6 +1,9 @@
 class SelectItemsController < ApplicationController
-    
-
+  before_action :set_selected_item, only: [:show, :edit, :update]
+  
+  def edit
+    binding.pry
+   end
 
    def select_item
     @user= current_user
@@ -14,16 +17,11 @@ class SelectItemsController < ApplicationController
     end
  end
 
-     def clearthetable 
-    
-      if @table.select_items.present?
-       @table.select_items.destroy_all 
-       redirect_to table_path(@table)
-      else
-      redirect_to table_path(@table)
-    end
-   end
-        
+private
+
+def set_selected_item
+   @item = SelectItem.find_by_id(params[:id])
+end
     
  end
     

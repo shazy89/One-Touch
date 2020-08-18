@@ -1,6 +1,24 @@
 <h4> Table Number: <%= @table.tabel_num %></h4>
 <%= @table.name_lastname %>
-    
+ 
+
+<div>
+  <a class="waves-effect waves-light btn modal-trigger black" href="#modal1">Products</a>
+</div>  
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <% @product.each do |product| %>
+   <button ><%= product.title %>
+       <%= form_tag "/select_items" do %>
+       <%= hidden_field_tag :product_id, product.id %>
+        <%= hidden_field_tag :table_id, @table.id  %>
+        <%= number_field_tag :quantity, 1 %>
+     <%= submit_tag "Add to List" %></button>
+      <% end %>
+    <% end %>
+    </div>
+
+  </div>
 
   <div>
      <div class="carousel">
@@ -34,7 +52,7 @@
              <td> <%= item.quantity %></td>
              <td> <%= item.product.price %></td>
              <td><%= item.total %></td>
-            <td><%= link_to "edit/delete", "#" %></td>
+            <td><%= link_to "edit/delete", "#"%></td>
             </tr>
                  <% running_total += item.total %>
             <% end %>

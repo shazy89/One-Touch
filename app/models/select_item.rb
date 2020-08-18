@@ -7,11 +7,11 @@ class SelectItem < ApplicationRecord
     self.quantity * self.product.price 
   end
 
+end
 
 
 
   
-  end
 
 
 

@@ -9,7 +9,7 @@ class TablesController < ApplicationController
 
     def new 
         @table = Table.new
-        @user = current_user
+     
     end
 
     def create
@@ -43,7 +43,6 @@ class TablesController < ApplicationController
     end
     
     def clearthetable 
-        binding.pry
         if @table.select_items.present?
          @table.select_items.destroy_all 
          redirect_to table_path(@table)
@@ -51,23 +50,24 @@ class TablesController < ApplicationController
         redirect_to table_path(@table)
       end
     end
+      
     
+    private
+   
+    def set_table
+      @table = Table.find(params[:id])
+    end
+   
+   
+    def table_params
+      params.require(:table).permit(:tabel_num)
+    end
+   
+    def user 
+       @user = current_user 
+    end
+   
+   
+   end
 
 
- private
-
- def set_table
-   @table = Table.find(params[:id])
- end
-
-
- def table_params
-   params.require(:table).permit(:tabel_num)
- end
-
- def user 
-    @user = current_user 
- end
-
-
-end
