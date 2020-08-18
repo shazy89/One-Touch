@@ -1,5 +1,5 @@
 class TablesController < ApplicationController
-    before_action :set_table, only: [:show, :edit, :update, :destroy]
+    before_action :set_table, only: [:show, :edit, :update, :destroy, :clearthetable]
     before_action :user, only: [:index, :new, :show]
     
     def index
@@ -24,6 +24,7 @@ class TablesController < ApplicationController
     def show
         @product = Product.all
     end
+        
 
     def edit
     end
@@ -40,6 +41,18 @@ class TablesController < ApplicationController
         @table.destroy
         redirect_to root_path
     end
+    
+    def clearthetable 
+        binding.pry
+        if @table.select_items.present?
+         @table.select_items.destroy_all 
+         redirect_to table_path(@table)
+        else
+        redirect_to table_path(@table)
+      end
+    end
+    
+
 
  private
 

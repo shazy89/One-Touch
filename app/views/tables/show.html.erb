@@ -1,19 +1,69 @@
 <h4> Table Number: <%= @table.tabel_num %></h4>
-  <div>
-      <% @product.each do |product| %>
+<%= @table.name_lastname %>
     
-      
-       <button><%= product.title %>
+
+  <div>
+     <div class="carousel">
+        <% @product.each do |product| %>
+     <button class="carousel-item"><%= product.title %>
        <%= form_tag "/select_items" do %>
        <%= hidden_field_tag :product_id, product.id %>
         <%= hidden_field_tag :table_id, @table.id  %>
         <%= number_field_tag :quantity, 1 %>
-     <%= submit_tag "Add to List" %></button> 
+     <%= submit_tag "Add to List" %></button>
       <% end %>
     <% end %>
   </div>
+</div>
+    
+      <table>
+        <thead>
+          <tr>
+              <th>Product</th>
+              <th>quantity</th>
+              <th>Price</th>
+              <th>Total</th>
+              <th>Edit/Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+           <% running_total = 0 %>
+            <% @table.select_items.each do |item| %>
+            <tr>
+             <td> <%= item.product.title %></td>
+             <td> <%= item.quantity %></td>
+             <td> <%= item.product.price %></td>
+             <td><%= item.total %></td>
+            <td><%= link_to "edit/delete", "#" %></td>
+            </tr>
+                 <% running_total += item.total %>
+            <% end %>
+        </tbody>
+      </table>
+      <div>
+           <h5 class="right "> - Total: <%= running_total %></h5>
+       </div>   
+       <br>  
+       <div class= "right">
+       <button ><%= link_to "Recipt", table_select_path %></button>
+       </div>
+        
 <br>
 <div>
-<button class="waves-effect waves-light btn purple"><%= link_to "back", tables_path %> </button>
+<button class="waves-effect waves-light btn purple"><%= link_to "back", root_path %> </button>
 </div>
+
+
+          
+       
+        
+   
+
+
+
+
+
+
+
+
 

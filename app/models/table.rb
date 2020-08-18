@@ -3,4 +3,12 @@ class Table < ApplicationRecord
     belongs_to :user
     has_many :products, through: :select_items
 
+    
+    def name_lastname
+        "#{self.user.first_name} #{self.user.last_name}"
+    end
 end
+     
+
+   
+

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :tables
+resources :tables
+  get 'table/:id/select_items', to: 'tables#clearthetable', as: 'table_select'
+
 post 'select_items', to: 'select_items#select_item', as: 'select'
   resources :products, only: [ :index, :new, :show, :edit, :create, :update, :destroy ]
 

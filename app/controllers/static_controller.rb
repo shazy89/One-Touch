@@ -3,5 +3,6 @@ class StaticController < ApplicationController
   def welcome
     @user = current_user
     @products = Product.all
+    @table = Table.all
   end
 end

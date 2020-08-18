@@ -1,7 +1,6 @@
 class SelectItemsController < ApplicationController
     
-    def index
-    end
+
 
    def select_item
     @user= current_user
@@ -12,9 +11,19 @@ class SelectItemsController < ApplicationController
        redirect_to table_path(@table)
       else 
         redirect_to root_path
-        
-       end
     end
+ end
+
+     def clearthetable 
+    
+      if @table.select_items.present?
+       @table.select_items.destroy_all 
+       redirect_to table_path(@table)
+      else
+      redirect_to table_path(@table)
+    end
+   end
+        
     
  end
     

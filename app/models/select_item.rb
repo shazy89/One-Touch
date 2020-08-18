@@ -2,5 +2,16 @@ class SelectItem < ApplicationRecord
   belongs_to :product
   belongs_to :table
 
-        
-end
+      
+  def total
+    self.quantity * self.product.price 
+  end
+
+
+
+
+  
+  end
+
+
+
