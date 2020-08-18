@@ -29,6 +29,8 @@ class UsersController < ApplicationController
     def update
  
         if @user.update(user_params)
+            @user.normalize_phone_number
+            @user.save
             redirect_to edit_user_path(@user)
         else
             redirect_to edit_user_path(@user)
@@ -36,7 +38,7 @@ class UsersController < ApplicationController
     end
 
     def show
-        
+
     end
 
     def destroy

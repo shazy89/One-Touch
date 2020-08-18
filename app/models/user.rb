@@ -17,11 +17,12 @@ class User < ApplicationRecord
 
     def normalize_phone_number
         if self.contact_number != nil
-        self.contact_number.phony_formatted!(normalize: :NL, format: :international ) 
+        self.contact_number.phony_formatted!(normalize: :US, format: :international ) 
         end
     end
 
+end
 
      
 
-end
+    

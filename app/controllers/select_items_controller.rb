@@ -5,15 +5,24 @@ class SelectItemsController < ApplicationController
 
    def select_item
     @user= current_user
-         binding.pry
-    @item = SelectItem.create(quantity: params[:quantity], product_id: params[:product_id])
-       redirect_to user_path(@user)
-   
+    @item = SelectItem.create(quantity: params[:quantity], product_id: params[:product_id], table_id: params[:table_id])
+    @table = @item.table.id
+      if @item.save
+        #binding.pry
+       redirect_to table_path(@table)
+      else 
+        redirect_to root_path
+        
+       end
     end
+    
+ end
+    
+ 
+
        
       
 
 
 
-end
 

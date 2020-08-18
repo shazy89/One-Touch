@@ -1,6 +1,14 @@
-      <%= link_to "User Profile", user_path(@user) %>
+     <% if current_user %>
+       <ul>
+         <button class="waves-effect waves-light btn-small purple"><%= link_to "User Profile", user_path(@user) %></button>
+        <button class="waves-effect waves-light btn-small purple"><%= link_to "Create Product", new_product_path %></button>
+        <button class="waves-effect waves-light btn-small purple"><%= link_to "Products", products_path %></button>
+        <button class="waves-effect waves-light btn-small purple"><%= link_to "Create Tables", new_table_path %></button>
+        <button class="waves-effect waves-light btn-small purple"><%= link_to "Tables", tables_path %></button>
+      </ul>
+ 
+     <% end %>
+    
      <h1 class ="center">Welcome</h1>
   
 
-
-    

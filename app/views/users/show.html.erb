@@ -1,14 +1,9 @@
+<button class="waves-effect waves-light btn-small purple" >
+<%= link_to "Edit User", edit_user_path(@user) %>
+</button>
 
-      <ul >
-        <li ><%= link_to "Create Product", new_product_path %></li>
-        <li ><%= link_to "Products", products_path %></li>
-        <li><a href="#test3">Disabled Tab</a></li>
-        <li ><a href="#test4">Test 4</a></li>
-      </ul>
- 
-<h5> Hi <%= @user.username %></h5>
+<div class = center>
 <%= render partial: 'user', locals: {user: @user} %>
 
-<button><%= link_to "Edit User", edit_user_path(@user) %></button>
- 
+
 

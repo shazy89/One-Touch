@@ -10,11 +10,12 @@
   </head>
 
   <body>
-    <div class="container">
+   
+    <div class="container white">
   <nav>
   
     <div class="nav-wrapper purple">
-      <a href="/" class="brand-logo">Home</a>
+      <a href="/" class="brand-logo"> OneTouch</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
       <% if  logged_in? %>
         <li><%= link_to "Log out", logout_path %></li>
@@ -64,5 +65,10 @@
     $('.tabs').tabs();
   });
     </script>
+<script>
+  $(document).ready(function(){
+    $('.tap-target').tapTarget();
+  });
+</script>
   </body>
 </html>

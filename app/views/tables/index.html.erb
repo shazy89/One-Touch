@@ -1,6 +1,13 @@
-<h1>Tables</h1>
+<h1 class= "center">Tables</h1>
 
+<div class="center">
  <% @table.each do |table| %>
- <button class="waves-effect waves-light btn"><%= link_to table.tabel_num, table_path(table) %></button>
+ <button class="waves-effect waves-light btn-large purple" ><%= link_to table.tabel_num, table_path(table) %></button>
  <% end %>
-     
+ 
+</div>
+<div class= "center">
+<%= link_to 'Back', user_path(@user) %> |
+  
+<%= link_to 'New Table', new_table_path %>
+</div>

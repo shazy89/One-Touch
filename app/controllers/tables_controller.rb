@@ -1,11 +1,14 @@
 class TablesController < ApplicationController
     before_action :set_table, only: [:show, :edit, :update, :destroy]
-    def index 
+    before_action :user, only: [:index, :new, :show]
+    
+    def index
+       
        @table = Table.all
     end
 
     def new 
-        @table = Product.new
+        @table = Table.new
         @user = current_user
     end
 
@@ -19,6 +22,7 @@ class TablesController < ApplicationController
     end
 
     def show
+        @product = Product.all
     end
 
     def edit
@@ -47,5 +51,10 @@ class TablesController < ApplicationController
  def table_params
    params.require(:table).permit(:tabel_num)
  end
+
+ def user 
+    @user = current_user 
+ end
+
 
 end
