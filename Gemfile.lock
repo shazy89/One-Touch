@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/omniauth/omniauth-github.git
+  revision: 5afe8aee3baccd84ce6f265a3e62efbb55ac14b9
+  specs:
+    omniauth-github (1.4.0)
+      omniauth (~> 1.5)
+      omniauth-oauth2 (>= 1.4.0, < 2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -80,13 +88,17 @@ GEM
       dotenv (= 2.7.6)
       railties (>= 3.2)
     erubi (1.9.0)
+    faraday (1.0.1)
+      multipart-post (>= 1.2, < 3)
     ffi (1.13.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    hashie (4.1.0)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
+    jwt (2.2.2)
     listen (3.2.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -103,9 +115,24 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.14.1)
     msgpack (1.3.3)
+    multi_json (1.15.0)
+    multi_xml (0.6.0)
+    multipart-post (2.1.1)
     nio4r (2.5.2)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
+    oauth2 (1.4.4)
+      faraday (>= 0.8, < 2.0)
+      jwt (>= 1.0, < 3.0)
+      multi_json (~> 1.3)
+      multi_xml (~> 0.5)
+      rack (>= 1.2, < 3)
+    omniauth (1.9.1)
+      hashie (>= 3.4.6)
+      rack (>= 1.6.2, < 3)
+    omniauth-oauth2 (1.7.0)
+      oauth2 (~> 1.4)
+      omniauth (~> 1.9)
     phony (2.18.15)
     phony_rails (0.14.13)
       activesupport (>= 3.0)
@@ -195,7 +222,7 @@ GEM
       nokogiri (~> 1.6)
       rubyzip (>= 1.3.0)
       selenium-webdriver (>= 3.0, < 4.0)
-    webpacker (4.2.2)
+    webpacker (4.3.0)
       activesupport (>= 4.2)
       rack-proxy (>= 0.6.1)
       railties (>= 4.2)
@@ -216,6 +243,7 @@ DEPENDENCIES
   dotenv-rails
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  omniauth-github!
   phony_rails
   pry
   puma (~> 4.1)

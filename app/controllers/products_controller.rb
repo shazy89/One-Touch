@@ -1,14 +1,23 @@
 class ProductsController < ApplicationController
     before_action :set_product, only: [:show, :edit, :update, :destroy]
+    before_action :actrive_user, only: [:index, :new ]
 
     def index
-        @product = Product.all
+        
+        if params[:term]
+           @products = @user.products.search(params[:term])
+        else
+            @products = @user.products.sorted_title
+        end
     end
+       
+  
+
 
     def new 
         @product = Product.new
-        @user = current_user
     end
+  
 
     def create
         @product = Product.create(product_params)
@@ -35,12 +44,12 @@ class ProductsController < ApplicationController
         end
     end
 
-
     def destroy
         @product.destroy
-        redirect_to user_products_path(current_user)
+        redirect_to user_products_path(@user)
     end
  
+
     
     private
     def set_product
@@ -50,6 +59,10 @@ class ProductsController < ApplicationController
 
     def product_params
       params.require(:product).permit(:title, :price, :user_id)
+    end
+
+    def actrive_user
+        @user = current_user
     end
 
 end

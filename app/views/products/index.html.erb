@@ -1,4 +1,11 @@
 <h2>Products</h2>
+<div>
+<%= form_tag(user_products_path(@user), method: "get") do %>
+  <%= text_field_tag :term, nil,  id: "Search", placeholder: "enter search term" %>
+
+  <%= submit_tag "Search"%>
+<% end %>
+</div>
 
 <table>
   <thead>
@@ -9,11 +16,10 @@
    </tr>
    </thead>
    <tbody>
-   <% @product.each do |product| %>
+   <%  @products.each do |product| %>
    <tr>
       <td><%= product.title %></td>
       <td>$<%= product.price %></td>
-   
       <td><%= link_to 'Edit', edit_user_product_path(current_user, product ) %></td>
        <td> <%= link_to "Delete", user_product_path(current_user, product ) , method: "delete", data: { confirm: 'Are you sure?' }  %></td>
    </tr>
@@ -21,6 +27,7 @@
    </tbody>
 </table>
      
+   
 
 
 

@@ -25,7 +25,6 @@ class TablesController < ApplicationController
         @product = Product.all
     end
         
-
     def edit
     end
 
@@ -69,5 +68,9 @@ class TablesController < ApplicationController
    
    
    end
+      
+
+
+
 
 

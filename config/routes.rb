@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 resources :tables 
-resources :select_items, only: [:edit, :show, :update] 
+resources :select_items, only: [:edit, :show, :update, :destroy] 
 
 
 
@@ -16,6 +16,9 @@ root 'static#welcome'
 resources :users, only: [:new, :show, :edit, :create, :update, :destroy ] do
 resources :products, only: [ :index, :new, :show, :edit, :create, :update, :destroy ]
 end
+
+get '/auth/github/callback', to: 'sessions#github'
+
 
 end
   

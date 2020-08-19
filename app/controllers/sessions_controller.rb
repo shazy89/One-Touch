@@ -5,9 +5,7 @@ class SessionsController < ApplicationController
   end
 
   def create
- 
     @user = User.find_by_username(user_params[:username])
-
     if @user && !logged_in? && @user.authenticate(user_params[:password])
       #binding.pry
       session[:user_id] = @user.id
@@ -17,6 +15,12 @@ class SessionsController < ApplicationController
       redirect_to login_path
     end
   end
+
+  def github
+    #binding.pry
+  end
+ 
+
      
   def destroy
     session.clear

@@ -1,5 +1,7 @@
 <h4> Table Number: <%= @table.tabel_num %></h4>
 <%= @table.name_lastname %>
+
+
  
 
 <div>
@@ -50,16 +52,16 @@
             <tr>
              <td> <%= item.product.title %></td>
              <td> <%= item.quantity %></td>
-             <td> <%= item.product.price %></td>
-             <td><%= item.total %></td>
-            <td><%= link_to "edit/delete", "#"%></td>
+             <td>$<%= item.product.price %></td>
+             <td>$<%= item.total %></td>
+            <td><%= link_to "edit/delete", edit_select_item_path(item)%></td>
             </tr>
                  <% running_total += item.total %>
             <% end %>
         </tbody>
       </table>
       <div>
-           <h5 class="right "> - Total: <%= running_total %></h5>
+           <h5 class="right "> Total: $<%= running_total %></h5>
        </div>   
        <br>  
        <div class= "right">

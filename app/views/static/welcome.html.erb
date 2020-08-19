@@ -1,21 +1,20 @@
      <% if current_user %>
-       <ul>
+        <h1 class ="center">Bosphorus Lounge</h1>
+       <ul> 
          <button class="waves-effect waves-light btn-small black"><%= link_to "User Profile", user_path(@user) %></button>
         <button class="waves-effect waves-light btn-small black"><%= link_to "Create Product", new_user_product_path(@user) %></button>
         <button class="waves-effect waves-light btn-small black"><%= link_to "Products", user_products_path(@user) %></button>
         <button class="waves-effect waves-light btn-small black"><%= link_to "Create Tables", new_table_path %></button>
         <button class="waves-effect waves-light btn-small black"><%= link_to "Tables", tables_path %></button>
       </ul>
- 
+
     
-     <h1 class ="center">Bosphorus Lounge</h1>
-  
+ 
 
 <div class="center">
  <% @table.each do |table| %>
  <button class="waves-effect waves-light btn-large black" ><%= link_to table.tabel_num, table_path(table) %></button>
  <% end %>
      <% end %>
-
 
 
