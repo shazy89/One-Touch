@@ -19,15 +19,15 @@
       <a href="/" class="brand-logo"> oneTouch</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
       <% if  logged_in? %>
-        <li><%= link_to "Log out", logout_path %></li>
-        
+        <li> <%= link_to "Log out", session_path(current_user.id), method: :delete %></li> 
         <% else %>
-        <li><%= link_to "Log in", login_path %></li>
+        <li><%= link_to "Log in", new_session_path %></li>
         <li><%= link_to "create account", new_user_path %></li>
         <% end %>
       </ul>
     </div>
   </nav>
+        
         
       
     <%= yield %>

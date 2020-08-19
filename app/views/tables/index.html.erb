@@ -1,8 +1,9 @@
 <h1 class= "center">Tables</h1>
-
+ 
 <div class="center">
  <% @table.each do |table| %>
- <button class="waves-effect waves-light btn-large purple" > Table <%= link_to table.tabel_num, table_path(table) %></button>
+
+ <button class="waves-effect waves-light btn-large purple">  <%= link_to "Table#{table.tabel_num}", table_path(table.id) %></button>
      
  <% end %>
  

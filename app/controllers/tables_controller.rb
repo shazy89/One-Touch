@@ -26,8 +26,8 @@ class TablesController < ApplicationController
 
     def show
         @product = Product.all
-        #binding.pry
     end
+   
         
     def edit
  
@@ -58,10 +58,10 @@ class TablesController < ApplicationController
     
     private
    
+    
     def set_table
-      @table = Table.find(params[:id])
+      @table = Table.find_by_id(params[:id])
     end
-   
    
     def table_params
       params.require(:table).permit(:tabel_num)
@@ -70,6 +70,7 @@ class TablesController < ApplicationController
     def user 
        @user = current_user 
     end
+   
    
    
    end

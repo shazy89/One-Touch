@@ -1,6 +1,6 @@
 <h1>Login</h1>
 <%= flash[:alert] %>
-<%= form_for @user, url: login_path do |f| %>
+<%= form_for @user, url: sessions_path do |f| %>
 
   <div>
     <%= f.label :username %>
