@@ -34,7 +34,7 @@ class UsersController < ApplicationController
         if @user.update(user_params)
             @user.normalize_phone_number
             @user.save
-            redirect_to edit_user_path(@user)
+            redirect_to user_path(@user)
         else
             redirect_to edit_user_path(@user)
         end

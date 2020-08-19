@@ -1,6 +1,6 @@
    <% if flash[:errors] %>
    <% flash[:errors].each do |error|   %>
-   <li> <%= error %></li>
+   <h5 class="red"> <%= error %></h5>
   <% end %>
 <% end %>
 <%= form_for ([current_user, @product]) do |f|  %>

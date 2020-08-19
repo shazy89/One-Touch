@@ -3,7 +3,6 @@ class ProductsController < ApplicationController
     before_action :actrive_user, only: [:index, :new, :create ]
 
     def index
-        
         if params[:term]
            @products = @user.products.search(params[:term])
         else
@@ -11,6 +10,7 @@ class ProductsController < ApplicationController
         end
     end
        
+        
     def new 
         @product = Product.new
     end
@@ -52,7 +52,7 @@ class ProductsController < ApplicationController
 
 
     def product_params
-      params.require(:product).permit(:title, :price, :user_id)
+      params.require(:product).permit(:title, :price)
     end
 
     def actrive_user

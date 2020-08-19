@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       redirect_to root_path
     else
       flash[:alert] = 'Username or password didnt match'
-      redirect_to login_path
+      redirect_to new_session_path
     end
   end
 
@@ -20,8 +20,6 @@ class SessionsController < ApplicationController
     #binding.pry
   end
  
-
-     
   def destroy
     session.clear
     redirect_to root_path
@@ -32,6 +30,8 @@ class SessionsController < ApplicationController
     params.require(:user).permit( :username,:password)
   end
 end
+
+     
 
 
 

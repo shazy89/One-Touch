@@ -4,8 +4,8 @@ class StaticController < ApplicationController
     @user = current_user
 
     @products = Product.all
-    @table = Table.all
-    
+    @table = Table.all.sorted_numbers
+
   end
 
 end
