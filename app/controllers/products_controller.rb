@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
     before_action :set_product, only: [:show, :edit, :update, :destroy]
-    before_action :actrive_user, only: [:index, :new ]
+    before_action :actrive_user, only: [:index, :new, :create ]
 
     def index
         
@@ -11,31 +11,27 @@ class ProductsController < ApplicationController
         end
     end
        
-  
-
-
     def new 
         @product = Product.new
     end
   
-
     def create
-        @product = Product.create(product_params)
+        @product = @user.products.build(product_params)
         if @product.save
             redirect_to user_products_path
         else
-            redirect_to root_path
+            flash[:errors] = @product.errors.full_messages
+            redirect_to new_user_product_path
         end
     end
-  
-        
+
+    
     def show
     end
         
-
     def edit
     end
-
+        
     def update
         if  @product.update(product_params)
             redirect_to user_products_path
@@ -49,8 +45,6 @@ class ProductsController < ApplicationController
         redirect_to user_products_path(@user)
     end
  
-
-    
     private
     def set_product
       @product = Product.find(params[:id])
@@ -66,6 +60,14 @@ class ProductsController < ApplicationController
     end
 
 end
+
+
+
+    
+  
+
+
+
       
   
 

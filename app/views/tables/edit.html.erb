@@ -9,3 +9,7 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<div class="right">
+<%= button_to "Delete Table", table_path(@table), data: { confirm: "Are you sure?" }, method: :delete %></p>
+</div>

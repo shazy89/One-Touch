@@ -1,27 +1,28 @@
 <h3>Edit</h3>
+<div >
+  <%= form_for @user do |f| %>
 
-<%= form_for @user do |f| %>
+      <%= f.label :first_name %><br />
+      <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+      <%= f.label :last_name %><br />
+      <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+      <%= f.label :contact_number %><br />
+      <%= f.text_field :contact_number, autofocus: true, autocomplete: "contact_number" %>
+      <%= f.label :username %><br />
+      <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.label :password %><i>(leave blank if you don't want to change it)</i><br />
+      <%= f.password_field :password, autocomplete: "new-password"  %>
+     <%= f.submit "update" %>
+  <% end %>
+</div>
 
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
-    <%= f.label :contact_number %><br />
-    <%= f.text_field :contact_number, autofocus: true, autocomplete: "contact_number" %>
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    <%= f.label :password %><i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password"  %>
 
-
-  <%= f.submit "update" %>
-<% end %>
 <div>
-  <%= link_to 'Back', user_path(@user) %> 
+   <button ><%= link_to 'Back', user_path(@user) %> </button>
 </div> 
 <br>
-<div>
-<%= button_to "Cancel my account", user_path(@user), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<div class ="right ">
+ <button class="#4a148c purple darken-4"><%= link_to "Cancel my account", user_path(@user), data: { confirm: "Are you sure?" }, method: :delete %></p></button>
 </div>

@@ -3,29 +3,34 @@ class TablesController < ApplicationController
     before_action :user, only: [:index, :new, :show]
     
     def index
-       
-       @table = Table.all
+        @table = Table.all.sorted_numbers
     end
+  
+       
 
     def new 
         @table = Table.new
-     
     end
+     
 
     def create
         @table = current_user.tables.build(table_params)
+    
         if @table.save
             redirect_to tables_path
         else
-            redirect_to root_path
+            flash[:errors] =  @table.errors.full_messages
+            redirect_to new_table_path
         end
     end
 
     def show
         @product = Product.all
+        #binding.pry
     end
         
     def edit
+ 
     end
 
     def update
@@ -38,7 +43,7 @@ class TablesController < ApplicationController
 
     def destroy
         @table.destroy
-        redirect_to root_path
+        redirect_to tables_path
     end
     
     def clearthetable 
