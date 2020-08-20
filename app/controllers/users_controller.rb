@@ -59,7 +59,7 @@ class UsersController < ApplicationController
       end
     end
       
-   # flash = {error: [“Username must exist”}flash[:errors]
+
       
 
     

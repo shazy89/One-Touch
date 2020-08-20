@@ -1,24 +1,10 @@
-# README
+oneTouch	
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+oneTouch is a POS(point of sale) system and is cloud based also is very easy to use, everything is on one click away!
+   To be able to use the program users must create a new account or can log in with their GitHub acc. 
+   There must be an admin user. Admin users can manage the app. They can create, edit, and delete products. They can also add tables, edit the tables (table numbers) and delete the tables.
+   Employee users, after signing up, have access to the main menu.
+On the top left side is User Profile button, users can edit and update their information.
+In the middle of the main menu, right under the company logo, are the tables.
+ “TABLE10” “TABLE11”  
+  Employee users have access to tables and inside the tables are the products. Users can select PRODUCT button for the full list of products. They can add or delete products and even edit the quantity.
