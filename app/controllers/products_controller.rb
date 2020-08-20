@@ -41,6 +41,7 @@ class ProductsController < ApplicationController
     end
 
     def destroy
+        binding.pry
         @product.destroy
         redirect_to user_products_path(current_user)
     end

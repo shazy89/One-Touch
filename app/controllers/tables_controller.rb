@@ -42,10 +42,16 @@ class TablesController < ApplicationController
     end
 
     def destroy
-        @table.destroy
-        redirect_to tables_path
+        if  @table.products.empty?
+            @table.destroy
+            redirect_to tables_path
+        else 
+            flash[:errors] = "Table must be empty before the delete action"
+            redirect_to tables_path
+        end
     end
     
+
     def clearthetable 
         if @table.select_items.present?
          @table.select_items.destroy_all 
@@ -74,6 +80,8 @@ class TablesController < ApplicationController
    
    
    end
+      
+    
       
 
 

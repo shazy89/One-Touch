@@ -23,11 +23,6 @@ class SelectItemsController < ApplicationController
 
    def select_item
        @user= current_user
-     #  binding.pry
-       par = params
-       if par == SelectItem.all_product_and_table_ids 
-        binding.pry
-       end
        @item = SelectItem.create(quantity: params[:quantity], product_id: params[:product_id], table_id: params[:table_id])
        if @item.save
          redirect_to table_path(@item.table_id)
@@ -35,6 +30,8 @@ class SelectItemsController < ApplicationController
           redirect_to root_path
       end
    end
+ 
+
    
    private
    
