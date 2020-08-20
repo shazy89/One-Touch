@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_action :online_user, only: [:new, :create]
+  skip_before_action :online_user, only: [:new, :create, :github]
   def new
     @user = User.new
   end
@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by_username(user_params[:username])
     if @user && !logged_in? && @user.authenticate(user_params[:password])
-      #binding.pry
       session[:user_id] = @user.id
       redirect_to root_path
     else
@@ -16,9 +15,14 @@ class SessionsController < ApplicationController
     end
   end
 
+
   def github
-    #binding.pry
-  end
+    user = User.find_or_create_from_omniauth(auth)
+    session[:user_id] = user.id
+    redirect_to root_path
+ end
+
+
  
   def destroy
     session.clear
@@ -28,6 +32,10 @@ class SessionsController < ApplicationController
   private
   def user_params
     params.require(:user).permit( :username,:password)
+  end
+
+  def auth
+    request.env["omniauth.auth"]
   end
 end
 

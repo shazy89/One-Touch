@@ -21,6 +21,16 @@ class User < ApplicationRecord
         end
     end
 
+      def self.find_or_create_from_omniauth(user_info)
+        #binding.pry
+       User.find_or_create_by(uid: user_info["uid"]) do |user|
+          user.username = user_info["info"]["nickname"]
+          user.password = SecureRandom.hex
+          user.email = user_info["info"]["email"] 
+          user.contact_number = "1111231212"
+      end
+    end
+
 end
 
 
