@@ -8,15 +8,21 @@ class SelectItem < ApplicationRecord
   end
 
   def before_save
-    if item.product_id == params[:product_id]
-       ite.quantity += params[:quantity]
-       item.save 
+    if self.product_id == params[:product_id]
+       self.quantity += params[:quantity]
+       self.save 
     end
   end  
 
+  def self.all_product_and_table_ids 
+    self.all.each do |item| 
+      item.product_id
+      item.table_id
+    end
+  end
+
 
 end
-
 
 
   

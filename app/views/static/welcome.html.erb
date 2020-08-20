@@ -7,10 +7,14 @@
          <button class="waves-effect waves-light btn-small black"><%= link_to "Tables", tables_path %></button>
        </ul>
          <h1 class ="center">Bosphorus Lounge</h1>
-         <div class="center">
+      
+              <div class="center">
            <% @table.each do |table| %>
            <button class="waves-effect waves-light btn-large #1b5e20 green darken-4">  <%= link_to "Table#{table.tabel_num}", table_path(table) %></button>
           <% end %>
+             </div>
+       
+        
           <% elsif logged_in? && !current_user.admin? %>
            <ul>
               <button class="waves-effect waves-light btn-small black"><%= link_to "User Profile", user_path(@user) %></button>
@@ -20,7 +24,7 @@
            <% @table.each do |table| %>
            <button class="waves-effect waves-light btn-large #1b5e20 green darken-4">  <%= link_to "Table#{table.tabel_num}", table_path(table) %></button>
           <% end %>
-
+             </div>
      <% end %>
  
 
