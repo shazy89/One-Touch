@@ -1,6 +1,6 @@
 
 <h4> Table Number: <%= @table.tabel_num %></h4>
-  <%= link_to 'Edit/delete', edit_table_path(@table) %>
+  <%=  link_to 'Edit/delete', edit_table_path(@table) if current_user.admin %>
 
 
  
