@@ -7,9 +7,10 @@
   <%= text_field_tag :term, nil,  id: "Search", placeholder: "enter search term" %>
   <%= submit_tag "Search"%>
 <% end %>
-
 </div>
-
+<div class="center red">
+<%= flash[:errors] %>
+</div>
 <table>
   <thead>
    <tr>

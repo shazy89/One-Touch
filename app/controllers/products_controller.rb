@@ -41,9 +41,14 @@ class ProductsController < ApplicationController
     end
 
     def destroy
-        binding.pry
-        @product.destroy
-        redirect_to user_products_path(current_user)
+ 
+        if  @product.select_items.present?
+            flash[:errors] = " Product in use "
+            redirect_to user_products_path(current_user)
+        else
+            @product.destroy
+            redirect_to user_products_path(current_user)
+        end
     end
  
     private
