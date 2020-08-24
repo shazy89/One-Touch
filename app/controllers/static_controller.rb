@@ -5,7 +5,7 @@ class StaticController < ApplicationController
 
     @products = Product.all
     @table = Table.all.sorted_numbers
-
+     
   end
 
 end

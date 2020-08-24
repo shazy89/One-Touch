@@ -1,6 +1,6 @@
 class Recipt < ApplicationRecord
-
-
-
-
 end
+    
+
+
+

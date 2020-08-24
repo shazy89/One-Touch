@@ -1,3 +1,4 @@
+     
       <% if logged_in? && current_user.admin? %>
        <ul>
          <button class="waves-effect waves-light btn-small black"><%= link_to "User Profile", user_path(@user) %></button>
@@ -14,10 +15,10 @@
           <% end %>
              </div>
        
-        
           <% elsif logged_in? && !current_user.admin? %>
            <ul>
               <button class="waves-effect waves-light btn-small black"><%= link_to "User Profile", user_path(@user) %></button>
+              <button class="waves-effect waves-light btn-small black"><%= link_to "Products", user_products_path(@user) %></button>
           </ul>
                    <h1 class ="center">Bosphorus Lounge</h1>
           <div class="center">
@@ -26,7 +27,7 @@
           <% end %>
              </div>
      <% end %>
- 
+        
 
     
        
