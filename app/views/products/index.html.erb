@@ -1,11 +1,11 @@
 <div>
 <h2>Products</h2>
-<button class="right purple"><%= link_to 'New Product', new_user_product_path %></button>
+<button class="right purple"><%= link_to "New Product", new_user_product_path %></button>
 </div>
 <div>
 <%= form_tag(user_products_path(@user), method: "get") do %>
-  <%= text_field_tag :term, nil,  id: "Search", placeholder: "enter search term" %>
-  <%= submit_tag "Search"%>
+  <%= text_field_tag :term, nil, id: "Search", placeholder: "enter search term" %>
+  <%= submit_tag "Search" %>
 <% end %>
 </div>
 <div class="center red">
@@ -20,12 +20,12 @@
    </tr>
    </thead>
    <tbody>
-   <%  @products.each do |product| %>
+   <% @products.each do |product| %>
    <tr>
       <td><%= product.title %></td>
       <td>$<%= product.price %></td>
-      <td><%= link_to 'Edit', edit_user_product_path(current_user, product ) %></td>
-       <td> <%= link_to "Delete", user_product_path(current_user, product ) , method: "delete", data: { confirm: 'Are you sure?' }  %></td>
+      <td><%= link_to "Edit", edit_user_product_path(current_user, product) %></td>
+       <td> <%= link_to "Delete", user_product_path(current_user, product), method: "delete", data: { confirm: "Are you sure?" } %></td>
    </tr>
    <% end %>
    </tbody>

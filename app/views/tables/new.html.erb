@@ -1,14 +1,14 @@
   <% if flash[:errors] %>
-   <% flash[:errors].each do |error|   %>
+   <% flash[:errors].each do |error| %>
    <li class="red"> <%= error %></li>
   <% end %>
 <% end %>
 
- <%= form_for @table do |f|  %>
+ <%= form_for @table do |f| %>
 
   <div class="field">
     <%= f.label :tabel_num %>
-    <%= f.number_field  :tabel_num %>
+    <%= f.number_field :tabel_num %>
   </div>
 
   <div class="actions">

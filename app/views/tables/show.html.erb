@@ -1,10 +1,6 @@
 
 <h4> Table Number: <%= @table.tabel_num %></h4>
-  <%=  link_to 'Edit/delete', edit_table_path(@table) if current_user.admin %>
-
-
- 
-
+  <%= link_to "Edit/delete", edit_table_path(@table) if current_user.admin %>
 <div>
   <a class="waves-effect waves-light btn modal-trigger black" href="#modal1">Products</a>
 </div>  
@@ -14,7 +10,7 @@
    <button ><%= product.title %>
        <%= form_tag "/select_items" do %>
        <%= hidden_field_tag :product_id, product.id %>
-        <%= hidden_field_tag :table_id, @table.id  %>
+        <%= hidden_field_tag :table_id, @table.id %>
         <%= number_field_tag :quantity, 1 %>
      <%= submit_tag "Add to List" %></button>
       <% end %>
@@ -28,7 +24,7 @@
      <button class="carousel-item"><%= product.title %>
        <%= form_tag "/select_items" do %>
        <%= hidden_field_tag :product_id, product.id %>
-        <%= hidden_field_tag :table_id, @table.id  %>
+        <%= hidden_field_tag :table_id, @table.id %>
         <%= number_field_tag :quantity, 1 %>
      <%= submit_tag "Add to List" %></button>
       <% end %>
@@ -54,7 +50,7 @@
              <td> <%= item.quantity %></td>
              <td>$<%= item.product.price %></td>
              <td>$<%= item.total %></td>
-            <td><%= link_to "edit/delete", edit_select_item_path(item)%></td>
+            <td><%= link_to "edit/delete", edit_select_item_path(item) %></td>
             </tr>
                  <% running_total += item.total %>
             <% end %>
@@ -72,6 +68,10 @@
 <div>
 <button class="waves-effect waves-light btn purple"><%= link_to "back", root_path %> </button>
 </div>
+
+
+ 
+
 
 
     

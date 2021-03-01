@@ -13,14 +13,14 @@
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
       <%= f.label :password %><i>(leave blank if you don't want to change it)</i><br />
-      <%= f.password_field :password, autocomplete: "new-password"  %>
+      <%= f.password_field :password, autocomplete: "new-password" %>
      <%= f.submit "update" %>
   <% end %>
 </div>
 
 
 <div>
-   <button ><%= link_to 'Back', user_path(@user) %> </button>
+   <button ><%= link_to "Back", user_path(@user) %> </button>
 </div> 
 <br>
 <div class ="right ">
